@@ -1,55 +1,57 @@
-<section class="project-detail">
+<section class="detail">
 
   @if (project) {
 
-    <div class="project-detail__container">
+    <a routerLink="/projets" class="detail__back">← Tous les projets</a>
 
-      <h1 class="project-detail__title">
+    <header class="detail__head reveal">
+      <p class="eyebrow">
+        {{ project.status === 'done' ? 'Projet terminé' : 'En développement' }}
+      </p>
+
+      <h1 class="detail__title">
         {{ project.title }}
-
         @if (project.isGroup) {
-          <span class="group-icon" title="Développé en groupe">👥</span>
+          <span class="tag">Équipe</span>
         }
       </h1>
 
-      <span class="project-detail__status">
-        {{ project.status === 'done' ? 'Terminé' : 'En cours' }}
-      </span>
+      <p class="detail__desc">{{ project.description }}</p>
 
-      <p class="project-detail__description">
-        {{ project.description }}
-      </p>
-
-      @if (project.url){
-        <a class = "project-link" href="{{project.url}}" target="_blank">🔗 Voir le site</a>
+      @if (project.url) {
+        <a class="btn btn--solid detail__cta" href="{{ project.url }}" target="_blank" rel="noopener">
+          Voir le site <span class="arrow">→</span>
+        </a>
       }
+    </header>
 
-      @if (project.images && project.images.length) {
-        <h3 class="project-detail__tech-title">Aperçu</h3>
-        <div class="project-detail__gallery">
-          @for (image of project.images; track image) {
-            <a class="gallery-item" href="{{ image }}" target="_blank" rel="noopener">
-              <img [src]="image" [alt]="project.title + ' — capture d\'écran'" loading="lazy" />
-            </a>
-          }
-        </div>
-      }
-
-      <h3 class="project-detail__tech-title">Technologies utilisées</h3>
-
-      <ul class="project-detail__tech-list">
+    <div class="detail__meta reveal delay-1">
+      <span class="detail__meta-label">Stack technique</span>
+      <ul class="detail__tech">
         @for (tech of project.technologies; track tech) {
           <li>{{ tech }}</li>
         }
       </ul>
-
-      <a routerLink="/projets" class="back-link">← Retour aux projets</a>
-
     </div>
+
+    @if (project.images && project.images.length) {
+      <h2 class="detail__section-title reveal">Aperçu</h2>
+      <div class="detail__gallery">
+        @for (image of project.images; track image; let i = $index) {
+          <a class="gallery-item reveal" href="{{ image }}" target="_blank" rel="noopener">
+            <img [src]="image" [alt]="project.title + ' — capture ' + (i + 1)" loading="lazy" />
+          </a>
+        }
+      </div>
+    }
 
   } @else {
 
-    <p class="project-not-found">Projet introuvable.</p>
+    <div class="detail__notfound">
+      <p class="eyebrow">Erreur 404</p>
+      <h1>Projet introuvable.</h1>
+      <a routerLink="/projets" class="btn btn--ghost">← Retour aux projets</a>
+    </div>
 
   }
 

@@ -1,14 +1,39 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+/* ============================================================
+   Sailor Vanbercy — Portfolio
+   Direction artistique : studio sombre raffiné
+   Encre #0d0d0f · accent cuivre #c8714f · Fraunces + Geist
+   ============================================================ */
 
 :root {
-  --primary: #7c3aed;
-  --primary-light: #a78bfa;
-  --accent: #c084fc;
-  --bg: #0f0a1a;
-  --card: rgba(26, 17, 40, 0.6);
-  --text: #f1f0f5;
-  --text-secondary: #a0a0b0;
-  --gradient: linear-gradient(135deg, #7c3aed, #c084fc);
+  /* Surfaces */
+  --ink:        #0d0d0f;
+  --ink-2:      #141417;
+  --ink-3:      #1b1b1f;
+
+  /* Texte */
+  --paper:      #f4f1ea;
+  --muted:      #9b968c;
+  --faint:      #6c685f;
+
+  /* Accent */
+  --accent:     #c8714f;
+  --accent-2:   #dd8a64;
+  --accent-dim: rgba(200, 113, 79, 0.12);
+
+  /* Filets */
+  --line:       rgba(244, 241, 234, 0.09);
+  --line-2:     rgba(244, 241, 234, 0.18);
+
+  /* Typo */
+  --font-display: 'Fraunces', Georgia, 'Times New Roman', serif;
+  --font-sans:    'Geist', system-ui, -apple-system, sans-serif;
+  --font-mono:    'Geist Mono', ui-monospace, 'SFMono-Regular', monospace;
+
+  /* Rythme */
+  --r:          5px;
+  --r-lg:       8px;
+  --maxw:       1180px;
+  --ease:       cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 *, *::before, *::after {
@@ -22,11 +47,20 @@ html {
 }
 
 body {
-  font-family: 'Inter', sans-serif;
-  background: var(--bg);
-  color: var(--text);
-  line-height: 1.6;
+  font-family: var(--font-sans);
+  background: var(--ink);
+  color: var(--paper);
+  line-height: 1.65;
+  letter-spacing: -0.01em;
+  font-weight: 400;
   -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+
+  /* texture très discrète : grain par dégradés radiaux fixes */
+  background-image:
+    radial-gradient(900px 600px at 12% -8%, rgba(200, 113, 79, 0.05), transparent 60%),
+    radial-gradient(700px 500px at 100% 0%, rgba(244, 241, 234, 0.02), transparent 55%);
+  background-attachment: fixed;
 }
 
 a {
@@ -36,67 +70,144 @@ a {
 
 ul {
   list-style: none;
-  padding: 0;
+}
+
+img {
+  display: block;
+  max-width: 100%;
 }
 
 ::selection {
-  background: rgba(124, 58, 237, 0.4);
-  color: #fff;
+  background: var(--accent);
+  color: var(--ink);
 }
 
-::-webkit-scrollbar {
-  width: 8px;
-}
-
-::-webkit-scrollbar-track {
-  background: var(--bg);
-}
-
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: var(--ink); }
 ::-webkit-scrollbar-thumb {
-  background: var(--primary);
-  border-radius: 4px;
+  background: var(--ink-3);
+  border: 2px solid var(--ink);
+  border-radius: 10px;
 }
+::-webkit-scrollbar-thumb:hover { background: var(--faint); }
+
+/* ---------- Typographie de titrage ---------- */
+
+h1, h2, h3 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-optical-sizing: auto;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+  color: var(--paper);
+}
+
+/* ---------- Utilitaires partagés ---------- */
+
+/* Sur-titre mono avec numéro de section */
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--accent);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+
+.eyebrow::before {
+  content: "";
+  width: 28px;
+  height: 1px;
+  background: var(--accent);
+  opacity: 0.6;
+}
+
+/* Filet de section */
+.rule {
+  height: 1px;
+  background: var(--line);
+  border: 0;
+  width: 100%;
+}
+
+/* Étiquette mono discrète (ex : projet en équipe) */
+.tag {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  border: 1px solid var(--line-2);
+  border-radius: 100px;
+  padding: 0.15rem 0.55rem;
+  white-space: nowrap;
+}
+
+/* Boutons */
+.btn {
+  font-family: var(--font-sans);
+  font-size: 0.92rem;
+  font-weight: 500;
+  letter-spacing: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.8rem 1.4rem;
+  border-radius: var(--r);
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: background 0.3s var(--ease), color 0.3s var(--ease),
+              border-color 0.3s var(--ease), transform 0.3s var(--ease);
+}
+
+.btn .arrow { transition: transform 0.3s var(--ease); }
+.btn:hover .arrow { transform: translateX(4px); }
+
+.btn--solid {
+  background: var(--accent);
+  color: var(--ink);
+  font-weight: 600;
+}
+.btn--solid:hover {
+  background: var(--accent-2);
+  transform: translateY(-2px);
+}
+
+.btn--ghost {
+  background: transparent;
+  color: var(--paper);
+  border-color: var(--line-2);
+}
+.btn--ghost:hover {
+  border-color: var(--paper);
+  transform: translateY(-2px);
+}
+
+/* ---------- Animations ---------- */
 
 @keyframes fadeUp {
-  from { opacity: 0; transform: translateY(30px); }
-  to { opacity: 1; transform: translateY(0); }
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes fadeIn {
   from { opacity: 0; }
-  to { opacity: 1; }
+  to   { opacity: 1; }
 }
 
-@keyframes shimmer {
-  0% { background-position: -200% center; }
-  100% { background-position: 200% center; }
-}
-
-@keyframes float {
-  0%, 100% { transform: translateY(0) rotate(0deg); }
-  50% { transform: translateY(-20px) rotate(5deg); }
-}
-
-@keyframes pulseGlow {
-  0%, 100% { box-shadow: 0 0 20px rgba(124, 58, 237, 0.3); }
-  50% { box-shadow: 0 0 40px rgba(124, 58, 237, 0.6); }
-}
-
-@keyframes gradientShift {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
-@keyframes scaleIn {
+@keyframes lineGrow {
   from { transform: scaleX(0); }
-  to { transform: scaleX(1); }
+  to   { transform: scaleX(1); }
 }
 
+/* Scroll reveal (piloté par l'observer dans app.ts) */
 .reveal {
   opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
+  transform: translateY(18px);
+  transition: opacity 0.7s var(--ease), transform 0.7s var(--ease);
 }
 
 .reveal.visible {
@@ -104,8 +215,17 @@ ul {
   transform: translateY(0);
 }
 
-.reveal.delay-1 { transition-delay: 0.1s; }
-.reveal.delay-2 { transition-delay: 0.2s; }
-.reveal.delay-3 { transition-delay: 0.3s; }
-.reveal.delay-4 { transition-delay: 0.4s; }
-.reveal.delay-5 { transition-delay: 0.5s; }
+.reveal.delay-1 { transition-delay: 0.08s; }
+.reveal.delay-2 { transition-delay: 0.16s; }
+.reveal.delay-3 { transition-delay: 0.24s; }
+.reveal.delay-4 { transition-delay: 0.32s; }
+.reveal.delay-5 { transition-delay: 0.40s; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+  .reveal { opacity: 1; transform: none; }
+}

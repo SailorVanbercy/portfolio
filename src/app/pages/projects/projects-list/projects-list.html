@@ -1,47 +1,70 @@
 <section class="projects">
 
-  <h1 class="projects__title reveal">Mes Projets</h1>
+  <header class="projects__head">
+    <p class="eyebrow reveal">02 — Travaux</p>
+    <h1 class="projects__title reveal delay-1">Projets</h1>
+    <p class="projects__lead reveal delay-2">
+      Une sélection de réalisations menées durant mon cursus et en entreprise,
+      du logiciel desktop à l'application web et à l'agent IA en production.
+    </p>
+  </header>
 
-  <h2 class="projects__section-title reveal">Projets terminés</h2>
+  <h2 class="projects__section-title reveal">
+    Terminés <span class="projects__count">{{ finishedProjects.length }}</span>
+  </h2>
 
-  <div class="projects__grid">
-    @for (project of finishedProjects; track project; let i = $index) {
-      <a class="project-card reveal" [style.transition-delay]="(i * 0.1) + 's'" [routerLink]="'/projets/' + project.slug">
-        <h3>
-          {{ project.title }}
-          @if (project.isGroup) {
-            <span class="group-icon" title="Projet de groupe">&#128101;</span>
-          }
-        </h3>
-        <p class="project-card__description">{{ project.description }}</p>
-        <div class="project-card__techs">
-          @for (tech of project.technologies.slice(0, 3); track tech) {
-            <span class="tech-badge">{{ tech }}</span>
-          }
+  <div class="projects__list">
+    @for (project of finishedProjects; track project.slug; let i = $index) {
+      <a class="project-row reveal" [routerLink]="'/projets/' + project.slug">
+        <span class="project-row__num">{{ i + 1 < 10 ? '0' + (i + 1) : i + 1 }}</span>
+
+        <div class="project-row__main">
+          <h3 class="project-row__title">
+            {{ project.title }}
+            @if (project.isGroup) {
+              <span class="tag">Équipe</span>
+            }
+          </h3>
+          <p class="project-row__desc">{{ project.description }}</p>
+          <div class="project-row__techs">
+            @for (tech of project.technologies.slice(0, 4); track tech) {
+              <span class="tech-badge">{{ tech }}</span>
+            }
+          </div>
         </div>
+
+        <span class="project-row__cta" aria-hidden="true">→</span>
       </a>
     }
   </div>
 
   @if (ongoingProjects.length > 0) {
-    <h2 class="projects__section-title spacing-top reveal">Projets en cours</h2>
+    <h2 class="projects__section-title spacing-top reveal">
+      En cours <span class="projects__count">{{ ongoingProjects.length }}</span>
+    </h2>
 
-    <div class="projects__grid">
-      @for (project of ongoingProjects; track project; let i = $index) {
-        <a class="project-card reveal" [style.transition-delay]="(i * 0.1) + 's'" [routerLink]="'/projets/' + project.slug">
-          <h3>
-            {{ project.title }}
-            @if (project.isGroup) {
-              <span class="group-icon" title="Projet de groupe">&#128101;</span>
-            }
-          </h3>
-          <p class="project-card__description">{{ project.description }}</p>
-          <span class="project-status">En développement</span>
-          <div class="project-card__techs">
-            @for (tech of project.technologies.slice(0, 3); track tech) {
-              <span class="tech-badge">{{ tech }}</span>
-            }
+    <div class="projects__list">
+      @for (project of ongoingProjects; track project.slug; let i = $index) {
+        <a class="project-row reveal" [routerLink]="'/projets/' + project.slug">
+          <span class="project-row__num">{{ i + 1 < 10 ? '0' + (i + 1) : i + 1 }}</span>
+
+          <div class="project-row__main">
+            <h3 class="project-row__title">
+              {{ project.title }}
+              @if (project.isGroup) {
+                <span class="tag">Équipe</span>
+              }
+              <span class="tag tag--live">En développement</span>
+            </h3>
+            <p class="project-row__desc">{{ project.description }}</p>
+            <div class="project-row__techs">
+              @for (tech of project.technologies.slice(0, 4); track tech) {
+                <span class="tech-badge">{{ tech }}</span>
+              }
+            </div>
           </div>
+
+          <span class="project-row__cta" aria-hidden="true">→</span>
         </a>
       }
     </div>

@@ -44,6 +44,14 @@ export class ProjectService {
       isGroup : true
     },
     {
+      title: 'The Lost Grimoire',
+      description: 'Application de prise de notes en Markdown avec organisation hiérarchique en arborescence de dossiers et de fichiers. Projet d\'examen réalisé en groupe.',
+      slug: 'the-lost-grimoire',
+      status: 'done',
+      technologies: ['React', 'Spring Boot', 'Java', 'Markdown'],
+      isGroup : true
+    },
+    {
       title: 'Are You the New Emilien ?',
       description: 'Jeu de plateau basé sur le jeu "Tu te mets combien ?".',
       slug: 'emilien',
@@ -81,7 +89,7 @@ export class ProjectService {
       description: 'Site web de prise de rendez-vous médicaux.',
       slug: 'kliniktime',
       status: 'done',
-      technologies: ['Angular', 'Spring Boot', 'MySQL'],
+      technologies: ['Angular', 'C#', 'ASP.NET', 'MySQL'],
       isGroup : true
     },
     {

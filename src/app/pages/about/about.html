@@ -1,10 +1,17 @@
 <section class="about">
-  <div class="about__container">
 
-    <h1 class="about__title reveal">À propos de moi</h1>
+  <header class="about__head">
+    <p class="eyebrow reveal">03 — À propos</p>
+    <h1 class="about__title reveal delay-1">Sailor Vanbercy</h1>
+    <p class="about__lead reveal delay-2">
+      Étudiant développeur à la HELHa, je conçois des applications web, mobiles
+      et desktop — du concept au code.
+    </p>
+  </header>
 
-    <div class="about__block reveal delay-1">
-      <h2>Qui suis-je ?</h2>
+  <div class="about__block reveal">
+    <span class="about__label">Qui suis-je</span>
+    <div class="about__text">
       <p>
         Je m'appelle Sailor Vanbercy, étudiant en développement informatique.
         Passionné par la programmation, les projets concrets et l'apprentissage
@@ -25,48 +32,41 @@
         accessibles dans leur approche.
       </p>
     </div>
+  </div>
 
-    <div class="about__block reveal delay-2">
-      <h2>Mon parcours</h2>
-
+  <div class="about__block reveal">
+    <span class="about__label">Parcours</span>
+    <div class="about__text">
       <div class="timeline">
         <div class="timeline__item">
-          <div class="timeline__dot"></div>
-          <div class="timeline__content">
-            <h3>Bloc 3 — HELHa</h3>
-            <p>Projets avancés : Angular, Spring Boot, C++, Flutter. Stage en entreprise.</p>
-          </div>
+          <h3>Bloc 3 — HELHa</h3>
+          <p>Projets avancés : Angular, Spring Boot, C++, Flutter. Stage en entreprise.</p>
         </div>
         <div class="timeline__item">
-          <div class="timeline__dot"></div>
-          <div class="timeline__content">
-            <h3>Bloc 2 — HELHa</h3>
-            <p>Applications web complètes, API REST, bases de données, Java avancé.</p>
-          </div>
+          <h3>Bloc 2 — HELHa</h3>
+          <p>Applications web complètes, API REST, bases de données, Java avancé.</p>
         </div>
         <div class="timeline__item">
-          <div class="timeline__dot"></div>
-          <div class="timeline__content">
-            <h3>Bloc 1 — HELHa</h3>
-            <p>Fondamentaux : algorithmique, Java, C, HTML/CSS, SQL.</p>
-          </div>
+          <h3>Bloc 1 — HELHa</h3>
+          <p>Fondamentaux : algorithmique, Java, C, HTML/CSS, SQL.</p>
         </div>
       </div>
     </div>
+  </div>
 
-    <div class="about__block reveal delay-3">
-      <h2>Compétences</h2>
-
+  <div class="about__block reveal">
+    <span class="about__label">Compétences</span>
+    <div class="about__text">
       <ul class="skills-list">
         @for (skill of [
-          'Angular', 'TypeScript', 'Java', 'JavaFX', 'C++',
-          'C', 'Python',
-          'Spring Boot', 'MySQL', 'SQLite', 'C# ASP.NET', 'Microsoft Entity Framework'
+          'Angular', 'React', 'TypeScript', 'Java', 'JavaFX', 'C++',
+          'C', 'Python', 'Spring Boot', 'C# / ASP.NET', 'Entity Framework',
+          'MySQL', 'SQLite'
         ]; track skill) {
           <li class="skill-chip">{{ skill }}</li>
         }
       </ul>
     </div>
-
   </div>
+
 </section>

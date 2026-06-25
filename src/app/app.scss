@@ -1,5 +1,12 @@
 .app-main {
-  max-width: 1200px;
+  max-width: var(--maxw);
   margin: 0 auto;
-  padding: 0 1.5rem;
+  padding: 0 2rem;
+  min-height: 60vh;
+}
+
+@media (max-width: 768px) {
+  .app-main {
+    padding: 0 1.25rem;
+  }
 }
