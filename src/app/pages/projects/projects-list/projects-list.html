@@ -1,0 +1,50 @@
+<section class="projects">
+
+  <h1 class="projects__title reveal">Mes Projets</h1>
+
+  <h2 class="projects__section-title reveal">Projets terminés</h2>
+
+  <div class="projects__grid">
+    @for (project of finishedProjects; track project; let i = $index) {
+      <a class="project-card reveal" [style.transition-delay]="(i * 0.1) + 's'" [routerLink]="'/projets/' + project.slug">
+        <h3>
+          {{ project.title }}
+          @if (project.isGroup) {
+            <span class="group-icon" title="Projet de groupe">&#128101;</span>
+          }
+        </h3>
+        <p class="project-card__description">{{ project.description }}</p>
+        <div class="project-card__techs">
+          @for (tech of project.technologies.slice(0, 3); track tech) {
+            <span class="tech-badge">{{ tech }}</span>
+          }
+        </div>
+      </a>
+    }
+  </div>
+
+  @if (ongoingProjects.length > 0) {
+    <h2 class="projects__section-title spacing-top reveal">Projets en cours</h2>
+
+    <div class="projects__grid">
+      @for (project of ongoingProjects; track project; let i = $index) {
+        <a class="project-card reveal" [style.transition-delay]="(i * 0.1) + 's'" [routerLink]="'/projets/' + project.slug">
+          <h3>
+            {{ project.title }}
+            @if (project.isGroup) {
+              <span class="group-icon" title="Projet de groupe">&#128101;</span>
+            }
+          </h3>
+          <p class="project-card__description">{{ project.description }}</p>
+          <span class="project-status">En développement</span>
+          <div class="project-card__techs">
+            @for (tech of project.technologies.slice(0, 3); track tech) {
+              <span class="tech-badge">{{ tech }}</span>
+            }
+          </div>
+        </a>
+      }
+    </div>
+  }
+
+</section>

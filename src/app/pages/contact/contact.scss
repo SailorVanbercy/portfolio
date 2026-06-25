@@ -1,0 +1,92 @@
+.contact {
+  padding: 3rem 0;
+  text-align: center;
+}
+
+.contact__title {
+  font-size: 2.4rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #7c3aed, #c084fc);
+  -webkit-background-clip: text;
+  color: transparent;
+  margin-bottom: 1.5rem;
+}
+
+.contact__intro {
+  color: #a0a0b0;
+  margin-bottom: 2.5rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.contact__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.contact-card {
+  padding: 2rem 1.5rem;
+  background: rgba(26, 17, 40, 0.6);
+  border: 1px solid rgba(124, 58, 237, 0.15);
+  border-radius: 18px;
+  backdrop-filter: blur(10px);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+
+  &:hover {
+    transform: translateY(-4px);
+    border-color: rgba(124, 58, 237, 0.4);
+    box-shadow: 0 12px 35px rgba(124, 58, 237, 0.2);
+  }
+
+  &__icon {
+    font-size: 2rem;
+    display: block;
+    margin-bottom: 0.8rem;
+    color: #c084fc;
+  }
+
+  h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    color: #f1f0f5;
+  }
+
+  a {
+    font-weight: 600;
+    color: #a78bfa;
+    transition: color 0.2s ease;
+
+    &:hover {
+      color: #c084fc;
+    }
+  }
+}
+
+.contact__actions {
+  text-align: center;
+}
+
+.cv-button {
+  display: inline-block;
+  padding: 0.9rem 2rem;
+  background: linear-gradient(135deg, #7c3aed, #c084fc);
+  color: white;
+  border-radius: 14px;
+  font-weight: 700;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  animation: pulseGlow 3s ease-in-out infinite;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 30px rgba(124, 58, 237, 0.4);
+  }
+}
+
+@media (max-width: 768px) {
+  .contact__grid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,119 @@
+.about {
+  display: flex;
+  justify-content: center;
+  padding: 3rem 0;
+}
+
+.about__container {
+  max-width: 900px;
+  width: 100%;
+}
+
+.about__title {
+  font-size: 2.4rem;
+  font-weight: 800;
+  text-align: center;
+  background: linear-gradient(135deg, #7c3aed, #c084fc);
+  -webkit-background-clip: text;
+  color: transparent;
+  margin-bottom: 2.5rem;
+}
+
+.about__block {
+  margin-bottom: 2.5rem;
+  padding: 2rem;
+  background: rgba(26, 17, 40, 0.6);
+  border-radius: 18px;
+  border: 1px solid rgba(124, 58, 237, 0.15);
+  backdrop-filter: blur(10px);
+
+  h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: #f1f0f5;
+    padding-left: 1rem;
+    border-left: 3px solid #7c3aed;
+  }
+
+  p {
+    color: #a0a0b0;
+    line-height: 1.7;
+    margin-bottom: 0.8rem;
+  }
+}
+
+.timeline {
+  position: relative;
+  padding-left: 2rem;
+  margin-top: 1rem;
+
+  &::before {
+    content: "";
+    position: absolute;
+    left: 8px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(180deg, #7c3aed, #c084fc);
+  }
+}
+
+.timeline__item {
+  position: relative;
+  margin-bottom: 2rem;
+  padding-left: 1rem;
+}
+
+.timeline__dot {
+  position: absolute;
+  left: -2rem;
+  top: 4px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #7c3aed;
+  border: 3px solid #0f0a1a;
+  box-shadow: 0 0 12px rgba(124, 58, 237, 0.5);
+
+  .timeline__item:first-child & {
+    background: #c084fc;
+    box-shadow: 0 0 16px rgba(192, 132, 252, 0.6);
+  }
+}
+
+.timeline__content {
+  h3 {
+    color: #c084fc;
+    font-size: 1.1rem;
+    margin-bottom: 0.3rem;
+  }
+
+  p {
+    color: #a0a0b0;
+    font-size: 0.95rem;
+    margin-bottom: 0;
+  }
+}
+
+.skills-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+}
+
+.skill-chip {
+  padding: 0.5rem 1.1rem;
+  border-radius: 12px;
+  background: rgba(124, 58, 237, 0.15);
+  border: 1px solid rgba(124, 58, 237, 0.3);
+  color: #a78bfa;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+  &:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(124, 58, 237, 0.3);
+  }
+}

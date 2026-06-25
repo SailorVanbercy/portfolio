@@ -1,0 +1,56 @@
+<section class="project-detail">
+
+  @if (project) {
+
+    <div class="project-detail__container">
+
+      <h1 class="project-detail__title">
+        {{ project.title }}
+
+        @if (project.isGroup) {
+          <span class="group-icon" title="Développé en groupe">👥</span>
+        }
+      </h1>
+
+      <span class="project-detail__status">
+        {{ project.status === 'done' ? 'Terminé' : 'En cours' }}
+      </span>
+
+      <p class="project-detail__description">
+        {{ project.description }}
+      </p>
+
+      @if (project.url){
+        <a class = "project-link" href="{{project.url}}" target="_blank">🔗 Voir le site</a>
+      }
+
+      @if (project.images && project.images.length) {
+        <h3 class="project-detail__tech-title">Aperçu</h3>
+        <div class="project-detail__gallery">
+          @for (image of project.images; track image) {
+            <a class="gallery-item" href="{{ image }}" target="_blank" rel="noopener">
+              <img [src]="image" [alt]="project.title + ' — capture d\'écran'" loading="lazy" />
+            </a>
+          }
+        </div>
+      }
+
+      <h3 class="project-detail__tech-title">Technologies utilisées</h3>
+
+      <ul class="project-detail__tech-list">
+        @for (tech of project.technologies; track tech) {
+          <li>{{ tech }}</li>
+        }
+      </ul>
+
+      <a routerLink="/projets" class="back-link">← Retour aux projets</a>
+
+    </div>
+
+  } @else {
+
+    <p class="project-not-found">Projet introuvable.</p>
+
+  }
+
+</section>

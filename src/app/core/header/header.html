@@ -1,0 +1,29 @@
+<header class="header">
+
+  <div class="header__left">
+    <div class="header__text">
+      <span class="name">Sailor Vanbercy</span>
+      <span class="subtitle">Étudiant en Informatique</span>
+    </div>
+  </div>
+
+  <div class="header__center">
+    <a routerLink="/" class="logo-link">
+      <img src="/logo-portfolio.png" alt="Logo" class="header__icon">
+    </a>
+  </div>
+
+  <button class="hamburger" [class.open]="menuOpen" (click)="menuOpen = !menuOpen">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+
+  <nav class="header__nav" [class.active]="menuOpen">
+    <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="menuOpen = false">Accueil</a>
+    <a routerLink="/projets" routerLinkActive="active" (click)="menuOpen = false">Projets</a>
+    <a routerLink="/about" routerLinkActive="active" (click)="menuOpen = false">À propos</a>
+    <a routerLink="/contact" routerLinkActive="active" (click)="menuOpen = false">Contact</a>
+  </nav>
+
+</header>
