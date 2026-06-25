@@ -45,15 +45,13 @@
   display: block;
   width: 42px;
   height: 42px;
-  background-color: var(--accent);
-  -webkit-mask: url('/logo-portfolio.png') center / contain no-repeat;
-          mask: url('/logo-portfolio.png') center / contain no-repeat;
-  transition: background-color 0.25s var(--ease), transform 0.25s var(--ease);
+  object-fit: contain;
+  transition: transform 0.25s var(--ease), opacity 0.25s var(--ease);
 }
 
 .header__icon:hover {
-  background-color: var(--accent-2);
   transform: translateY(-1px);
+  opacity: 0.85;
 }
 
 .logo-link {

@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
-import {RouterLink} from '@angular/router';
+import { Component, inject } from '@angular/core';
+import { RouterLink } from '@angular/router';
+import { ProjectService, Project } from '../../services/project-service';
 
 @Component({
   selector: 'app-home',
@@ -10,4 +11,7 @@ import {RouterLink} from '@angular/router';
     RouterLink
   ]
 })
-export class Home {}
+export class Home {
+  private projectService = inject(ProjectService);
+  featured: Project[] = this.projectService.getFeatured();
+}

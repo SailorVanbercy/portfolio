@@ -9,6 +9,7 @@ export interface Project {
   isGroup : boolean;
   url? : string;
   images? : string[];   // Captures d'écran (galerie sur la page détail)
+  featured? : boolean;  // Mis en avant sur la page d'accueil
 }
 
 @Injectable({
@@ -26,6 +27,7 @@ export class ProjectService {
       status: 'done',
       technologies: ['Next.js', 'TypeScript', 'Supabase', 'Playwright', 'WhatsApp API', 'Claude AI'],
       isGroup : false,
+      featured : true,
       images : [
         'projects/leadboy/pipeline.png',
         'projects/leadboy/scraper.png',
@@ -49,7 +51,8 @@ export class ProjectService {
       slug: 'the-lost-grimoire',
       status: 'done',
       technologies: ['React', 'Spring Boot', 'Java', 'Markdown'],
-      isGroup : true
+      isGroup : true,
+      featured : true
     },
     {
       title: 'Are You the New Emilien ?',
@@ -90,7 +93,8 @@ export class ProjectService {
       slug: 'kliniktime',
       status: 'done',
       technologies: ['Angular', 'C#', 'ASP.NET', 'MySQL'],
-      isGroup : true
+      isGroup : true,
+      featured : true
     },
     {
       title: 'FoodSnap',
@@ -123,6 +127,11 @@ export class ProjectService {
   // 👉 Projets en cours
   getInProgress() {
     return this.projects.filter(p => p.status === 'progress');
+  }
+
+  // 👉 Projets mis en avant (page d'accueil)
+  getFeatured() {
+    return this.projects.filter(p => p.featured);
   }
 
   // 👉 Récupérer un projet via son slug

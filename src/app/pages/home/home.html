@@ -39,3 +39,38 @@
     <span class="hero__scroll-line"></span>
   </div>
 </section>
+
+<section class="featured">
+  <div class="featured__head">
+    <div>
+      <p class="eyebrow reveal">Sélection</p>
+      <h2 class="featured__title reveal delay-1">Projets phares</h2>
+    </div>
+    <a routerLink="/projets" class="featured__all reveal delay-1">
+      Tous les projets <span class="arrow">→</span>
+    </a>
+  </div>
+
+  <div class="featured__list">
+    @for (project of featured; track project.slug; let i = $index) {
+      <a class="feature-row reveal" [routerLink]="'/projets/' + project.slug">
+        <span class="feature-row__num">{{ i + 1 < 10 ? '0' + (i + 1) : i + 1 }}</span>
+        <div class="feature-row__main">
+          <h3 class="feature-row__title">
+            {{ project.title }}
+            @if (project.isGroup) {
+              <span class="tag">Équipe</span>
+            }
+          </h3>
+          <p class="feature-row__desc">{{ project.description }}</p>
+          <div class="feature-row__techs">
+            @for (tech of project.technologies.slice(0, 4); track tech) {
+              <span class="tech-badge">{{ tech }}</span>
+            }
+          </div>
+        </div>
+        <span class="feature-row__cta" aria-hidden="true">→</span>
+      </a>
+    }
+  </div>
+</section>
