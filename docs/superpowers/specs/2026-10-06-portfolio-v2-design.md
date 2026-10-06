@@ -101,8 +101,9 @@ Localized path segments are mapped in a single `routes.ts` dictionary.
 3. Context and problem solved
 4. Key features (bullets)
 5. Architecture (short text, optional simple diagram)
-6. Tech stack grouped by layer: Frontend, Backend, Database, Infrastructure/DevOps,
-   Tooling/Testing, AI (when relevant)
+6. Tech stack grouped by layer: Frontend, Backend, Database/ORM, Security,
+   Architecture, Infrastructure/DevOps, Testing, Tooling, AI (when relevant) —
+   including frameworks, libraries and tools, not only languages (see 4.5)
 7. Screenshot gallery (lightbox via Dialog, keyboard navigable)
 8. Links (repo/demo when public), previous/next project
 
@@ -121,8 +122,9 @@ type Locale = 'fr' | 'en';
 type Localized<T = string> = Record<Locale, T>;
 
 type SkillCategory =
-  | 'language' | 'frontend' | 'backend' | 'database'
-  | 'devops' | 'testing' | 'ai' | 'tooling' | 'mobile' | 'desktop';
+  | 'language' | 'frontend' | 'backend' | 'database' | 'orm'
+  | 'security' | 'architecture' | 'devops' | 'testing' | 'ai'
+  | 'tooling' | 'mobile' | 'desktop' | 'methodology';
 
 interface Skill {
   id: string;              // e.g. 'nextjs'
@@ -131,7 +133,8 @@ interface Skill {
 }
 
 type StackLayer =
-  'frontend' | 'backend' | 'database' | 'infrastructure' | 'tooling' | 'ai' | 'mobile' | 'desktop';
+  | 'frontend' | 'backend' | 'database' | 'security' | 'architecture'
+  | 'infrastructure' | 'testing' | 'tooling' | 'ai' | 'mobile' | 'desktop';
 
 interface Project {
   slug: string;
@@ -154,6 +157,26 @@ interface Project {
 
 Zod validates every project at build time; an unknown skill id or a missing image
 file fails the build.
+
+**Skill granularity — job-market oriented.** The registry is not limited to
+programming languages. Every tool a recruiter may search for is extracted from the
+code and dependency manifests and listed, for example:
+
+- Frameworks and libraries: Spring Boot, Spring Security, Spring Data, React Router,
+  TanStack Query, Zustand, Expo Router, RxJS, Entity Framework Core
+- ORMs / data access: JPA, Hibernate, Prisma, Drizzle, Supabase client, PDO
+- Security: JWT, OAuth, bcrypt, Row Level Security, Zod/validation, CORS, rate limiting
+- Architecture and patterns: REST API, MVC, layered/repository architecture,
+  design patterns actually implemented (Observer, Strategy, State, Factory...),
+  WebSockets, i18n
+- DevOps and infrastructure: Docker, Docker Compose, VPS, Vercel, CI, Nginx
+- Testing: Vitest, Jest, Playwright, JUnit, Mockito, Karma/Jasmine
+- Tooling: Git, Maven/Gradle, CMake, Postman/OpenAPI, Figma
+- AI: Claude API / Claude Code, OpenAI API, prompt engineering, agentic workflows
+- Methodology: Scrum (sprints, backlog, user stories), UML
+
+Only tools evidenced in the project (manifest, imports, config, docs) are listed;
+nothing is inferred without proof.
 
 The **skills tree** is computed from `projects[*].stack`: grouped by
 `SkillCategory`, each skill shows how many projects use it and links to them.
