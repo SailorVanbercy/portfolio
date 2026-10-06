@@ -22,6 +22,9 @@ export const skills = [
   { id: 'jspdf', label: 'jsPDF', category: 'frontend' },
   { id: 'framer-motion', label: 'Framer Motion', category: 'frontend' },
   { id: 'react-hook-form', label: 'React Hook Form', category: 'frontend' },
+  { id: 'vite', label: 'Vite', category: 'frontend' },
+  { id: 'react-router', label: 'React Router', category: 'frontend' },
+  { id: 'tiptap', label: 'TipTap (rich text editor)', category: 'frontend' },
 
   // Backend
   { id: 'nodejs', label: 'Node.js', category: 'backend' },
@@ -40,6 +43,7 @@ export const skills = [
   // Databases
   { id: 'postgresql', label: 'PostgreSQL', category: 'database' },
   { id: 'sqlite', label: 'SQLite', category: 'database' },
+  { id: 'mysql', label: 'MySQL', category: 'database' },
   { id: 'supabase-client', label: 'Supabase JS client', category: 'orm' },
   { id: 'prisma', label: 'Prisma', category: 'orm' },
   { id: 'jpa', label: 'JPA', category: 'orm' },
@@ -66,6 +70,8 @@ export const skills = [
   { id: 'layered-architecture', label: 'Layered architecture', category: 'architecture' },
   { id: 'dto', label: 'DTO', category: 'architecture' },
   { id: 'openapi', label: 'OpenAPI / Swagger', category: 'architecture' },
+  { id: 'cqrs', label: 'CQRS', category: 'architecture' },
+  { id: 'clean-architecture', label: 'Clean architecture', category: 'architecture' },
   { id: 'circuit-breaker', label: 'Circuit breaker', category: 'architecture' },
   { id: 'web-scraping', label: 'Web scraping', category: 'architecture' },
   { id: 'i18n', label: 'i18n', category: 'architecture' },
@@ -87,6 +93,7 @@ export const skills = [
   { id: 'testing-library', label: 'Testing Library', category: 'testing' },
   { id: 'junit', label: 'JUnit 5', category: 'testing' },
   { id: 'mockito', label: 'Mockito', category: 'testing' },
+  { id: 'testcontainers', label: 'Testcontainers', category: 'testing' },
 
   // AI
   { id: 'claude-api', label: 'Claude API (Anthropic)', category: 'ai' },
