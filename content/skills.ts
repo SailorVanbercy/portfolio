@@ -7,11 +7,14 @@ export const skills = [
   { id: 'typescript', label: 'TypeScript', category: 'language' },
   { id: 'javascript', label: 'JavaScript', category: 'language' },
   { id: 'java', label: 'Java', category: 'language' },
+  { id: 'csharp', label: 'C#', category: 'language' },
   { id: 'sql', label: 'SQL', category: 'language' },
 
   // Frontend
   { id: 'nextjs', label: 'Next.js', category: 'frontend' },
   { id: 'react', label: 'React', category: 'frontend' },
+  { id: 'angular', label: 'Angular', category: 'frontend' },
+  { id: 'rxjs', label: 'RxJS', category: 'frontend' },
   { id: 'tailwindcss', label: 'Tailwind CSS', category: 'frontend' },
   { id: 'radix-ui', label: 'Radix UI', category: 'frontend' },
   { id: 'next-intl', label: 'next-intl (i18n)', category: 'frontend' },
@@ -30,6 +33,7 @@ export const skills = [
   { id: 'nodejs', label: 'Node.js', category: 'backend' },
   { id: 'express', label: 'Express', category: 'backend' },
   { id: 'spring-boot', label: 'Spring Boot', category: 'backend' },
+  { id: 'aspnet-core', label: 'ASP.NET Core Web API', category: 'backend' },
   { id: 'spring-ai', label: 'Spring AI', category: 'backend' },
   { id: 'apache-tika', label: 'Apache Tika', category: 'backend' },
   { id: 'resend', label: 'Resend', category: 'backend' },
@@ -44,12 +48,14 @@ export const skills = [
   { id: 'postgresql', label: 'PostgreSQL', category: 'database' },
   { id: 'sqlite', label: 'SQLite', category: 'database' },
   { id: 'mysql', label: 'MySQL', category: 'database' },
+  { id: 'sql-server', label: 'SQL Server', category: 'database' },
   { id: 'supabase-client', label: 'Supabase JS client', category: 'orm' },
   { id: 'prisma', label: 'Prisma', category: 'orm' },
   { id: 'jpa', label: 'JPA', category: 'orm' },
   { id: 'hibernate', label: 'Hibernate', category: 'orm' },
   { id: 'spring-data-jpa', label: 'Spring Data JPA', category: 'orm' },
   { id: 'drizzle', label: 'Drizzle ORM', category: 'orm' },
+  { id: 'ef-core', label: 'Entity Framework Core', category: 'orm' },
 
   // Security
   { id: 'jwt', label: 'JWT', category: 'security' },
@@ -86,6 +92,7 @@ export const skills = [
   { id: 'pm2', label: 'PM2', category: 'devops' },
   { id: 'vercel', label: 'Vercel', category: 'devops' },
 
+
   // Testing
   { id: 'vitest', label: 'Vitest', category: 'testing' },
   { id: 'playwright', label: 'Playwright', category: 'testing' },
@@ -111,6 +118,11 @@ export const skills = [
   { id: 'husky', label: 'Husky / lint-staged', category: 'tooling' },
   { id: 'maven', label: 'Maven', category: 'tooling' },
   { id: 'lombok', label: 'Lombok', category: 'tooling' },
+
+  // Methodology
+  { id: 'uml', label: 'UML', category: 'methodology' },
+  { id: 'bpmn', label: 'BPMN', category: 'methodology' },
+  { id: 'scrum', label: 'Scrum', category: 'methodology' },
 
   // Mobile
   { id: 'react-native', label: 'React Native', category: 'mobile' },
