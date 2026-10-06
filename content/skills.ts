@@ -33,8 +33,10 @@ export const skills = [
 
   // Databases
   { id: 'postgresql', label: 'PostgreSQL', category: 'database' },
+  { id: 'sqlite', label: 'SQLite', category: 'database' },
   { id: 'supabase-client', label: 'Supabase JS client', category: 'orm' },
   { id: 'prisma', label: 'Prisma', category: 'orm' },
+  { id: 'drizzle', label: 'Drizzle ORM', category: 'orm' },
 
   // Security
   { id: 'jwt', label: 'JWT', category: 'security' },
@@ -60,6 +62,8 @@ export const skills = [
   { id: 'docker-compose', label: 'Docker Compose', category: 'devops' },
   { id: 'traefik', label: 'Traefik', category: 'devops' },
   { id: 'linux-vps', label: 'Linux / VPS', category: 'devops' },
+  { id: 'nginx', label: 'Nginx', category: 'devops' },
+  { id: 'pm2', label: 'PM2', category: 'devops' },
 
   // Testing
   { id: 'vitest', label: 'Vitest', category: 'testing' },
