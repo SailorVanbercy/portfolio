@@ -50,7 +50,7 @@ export default defineProject({
     architecture: ['rest-api', 'circuit-breaker', 'web-scraping', 'i18n'],
     infrastructure: ['docker', 'docker-compose', 'traefik', 'linux-vps'],
     testing: ['vitest', 'playwright'],
-    ai: ['claude-api', 'grok-api', 'llamaindex', 'ai-agents', 'prompt-engineering', 'claude-code'],
+    ai: ['claude-api', 'grok-api', 'llamaindex', 'ai-agents', 'computer-vision', 'prompt-engineering', 'claude-code'],
     tooling: ['git', 'eslint'],
   },
   images: [

@@ -20,6 +20,8 @@ export const skills = [
   { id: 'tanstack-query', label: 'TanStack Query', category: 'frontend' },
   { id: 'zustand', label: 'Zustand', category: 'frontend' },
   { id: 'jspdf', label: 'jsPDF', category: 'frontend' },
+  { id: 'framer-motion', label: 'Framer Motion', category: 'frontend' },
+  { id: 'react-hook-form', label: 'React Hook Form', category: 'frontend' },
 
   // Backend
   { id: 'nodejs', label: 'Node.js', category: 'backend' },
@@ -27,6 +29,7 @@ export const skills = [
   { id: 'spring-boot', label: 'Spring Boot', category: 'backend' },
   { id: 'spring-ai', label: 'Spring AI', category: 'backend' },
   { id: 'apache-tika', label: 'Apache Tika', category: 'backend' },
+  { id: 'resend', label: 'Resend', category: 'backend' },
   { id: 'nextjs-api-routes', label: 'Next.js Route Handlers', category: 'backend' },
   { id: 'supabase', label: 'Supabase', category: 'backend' },
   { id: 'websocket', label: 'WebSocket', category: 'backend' },
@@ -75,6 +78,7 @@ export const skills = [
   { id: 'linux-vps', label: 'Linux / VPS', category: 'devops' },
   { id: 'nginx', label: 'Nginx', category: 'devops' },
   { id: 'pm2', label: 'PM2', category: 'devops' },
+  { id: 'vercel', label: 'Vercel', category: 'devops' },
 
   // Testing
   { id: 'vitest', label: 'Vitest', category: 'testing' },
@@ -88,6 +92,7 @@ export const skills = [
   { id: 'claude-api', label: 'Claude API (Anthropic)', category: 'ai' },
   { id: 'grok-api', label: 'Grok API (xAI)', category: 'ai' },
   { id: 'gemini-api', label: 'Gemini API (Google)', category: 'ai' },
+  { id: 'computer-vision', label: 'Multimodal LLM (vision)', category: 'ai' },
   { id: 'llamaindex', label: 'LlamaIndex (RAG)', category: 'ai' },
   { id: 'prompt-engineering', label: 'Prompt engineering', category: 'ai' },
   { id: 'ai-agents', label: 'Agentic AI', category: 'ai' },
