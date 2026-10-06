@@ -47,7 +47,7 @@ export default defineProject({
     mobile: ['react-native', 'expo', 'expo-router', 'nativewind', 'tanstack-query', 'zustand', 'push-notifications'],
     backend: ['supabase', 'nextjs-api-routes'],
     database: ['postgresql', 'sql', 'supabase-client'],
-    security: ['row-level-security', 'oauth', 'zod', 'security-headers'],
+    security: ['row-level-security', 'rbac', 'oauth', 'zod', 'security-headers'],
     architecture: ['multi-tenant', 'rest-api'],
     infrastructure: ['docker'],
     testing: ['vitest', 'jest', 'testing-library', 'playwright'],

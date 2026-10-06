@@ -29,10 +29,12 @@ export const skills = [
   { id: 'websocket', label: 'WebSocket', category: 'backend' },
   { id: 'baileys', label: 'Baileys (WhatsApp Web)', category: 'backend' },
   { id: 'cheerio', label: 'Cheerio', category: 'backend' },
+  { id: 'pusher', label: 'Pusher', category: 'backend' },
 
   // Databases
   { id: 'postgresql', label: 'PostgreSQL', category: 'database' },
   { id: 'supabase-client', label: 'Supabase JS client', category: 'orm' },
+  { id: 'prisma', label: 'Prisma', category: 'orm' },
 
   // Security
   { id: 'jwt', label: 'JWT', category: 'security' },
@@ -42,6 +44,9 @@ export const skills = [
   { id: 'security-headers', label: 'CSP / security headers', category: 'security' },
   { id: 'row-level-security', label: 'Row Level Security (RLS)', category: 'security' },
   { id: 'oauth', label: 'OAuth 2.0', category: 'security' },
+  { id: 'nextauth', label: 'NextAuth.js', category: 'security' },
+  { id: 'bcrypt', label: 'bcrypt', category: 'security' },
+  { id: 'rbac', label: 'RBAC', category: 'security' },
 
   // Architecture
   { id: 'rest-api', label: 'API REST', category: 'architecture' },
