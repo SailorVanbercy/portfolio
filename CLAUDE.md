@@ -1,92 +1,62 @@
-# CLAUDE.md — Portfolio Sailor Vanbercy
+# CLAUDE.md — Portfolio Sailor Vanbercy (v2)
 
-## Projet
+## Project
 
-Portfolio personnel Angular (v20) avec thème sombre violet. Composants standalone, routing simple, pas de backend.
+Bilingual (FR default / EN) static portfolio. Next.js App Router with `output: 'export'`,
+deployed on Vercel at https://portfolio-sailorvanbercy.vercel.app. No backend.
 
-## Commandes
+Spec: `docs/superpowers/specs/2026-10-06-portfolio-v2-design.md`
+Plan: `docs/superpowers/plans/2026-10-06-portfolio-v2.md`
+
+## Commands
 
 ```bash
-npm start          # Serveur de dev (ng serve)
-npm run build      # Build production
-npm test           # Tests unitaires Karma/Jasmine
+npm run dev        # Dev server
+npm run build      # Validates content (prebuild) then static export to out/
+npm start          # Serves out/ on http://localhost:3100
+npm test           # Vitest unit tests
+npm run test:e2e   # Playwright (builds and serves out/ automatically)
+npm run lint
 ```
 
-## Architecture
+## Structure
 
 ```
+content/
+  skills.ts              # Skills registry (single source of truth, exports SkillId)
+  profile.ts             # Bio, timeline, contact (FR/EN)
+  projects/
+    define.ts            # defineProject() typed helper
+    index.ts             # List of all projects
+    <slug>.ts            # One file per project
 src/
-├── app/
-│   ├── core/                  # Layout persistant
-│   │   ├── header/            # Navigation + hamburger mobile
-│   │   └── footer/
-│   ├── pages/                 # Pages routées
-│   │   ├── home/              # Hero avec animations
-│   │   ├── projects/
-│   │   │   ├── projects-list/ # Grille de projets
-│   │   │   └── project-detail/# Détail par slug (:id)
-│   │   ├── about/             # Parcours + timeline + compétences
-│   │   └── contact/           # Grille de 3 cartes + bouton CV
-│   ├── services/
-│   │   └── project-service.ts # Données projets (in-memory)
-│   ├── app.ts                 # Root : IntersectionObserver + MutationObserver pour .reveal
-│   ├── app.html
-│   ├── app.scss               # Container max-width 1200px
-│   └── app.routes.ts          # Routes : /, /projets, /projets/:id, /about, /contact
-├── styles.scss                # Variables CSS, reset, keyframes, classes .reveal
-└── index.html
-public/                        # Assets statiques (logo, favicon, CV PDF)
+  lib/                   # i18n, routes, dictionary, content schema/validation/queries, skills tree
+  app/
+    (root)/              # '/' redirect page
+    [locale]/            # Locale layout, home, [section] (projects|about|contact), [section]/[slug]
+  components/            # UI components (ui/ = shadcn)
+public/projects/<slug>/  # Screenshots (WebP)
+scripts/validate-content.ts  # prebuild content validation
+tests/unit, tests/e2e
 ```
 
-## Stack technique
+## Adding a project
 
-- **Framework** : Angular 20 (standalone components, signals)
-- **Styles** : SCSS avec CSS custom properties
-- **TypeScript** : strict mode, strict templates
-- **Build** : @angular/build:application
-- **Tests** : Karma + Jasmine
+1. Add screenshots to `public/projects/<slug>/NN-<name>.webp`.
+2. Add any missing skill to `content/skills.ts` (frameworks, ORMs, tools — not only languages).
+3. Create `content/projects/<slug>.ts` with `defineProject({...})`, FR and EN both filled.
+4. Register it in `content/projects/index.ts`.
+5. `npm test && npm run build` — the build fails on a missing translation, unknown skill id,
+   duplicate slug/order or missing image.
 
 ## Conventions
 
-- Composants standalone uniquement (pas de NgModule)
-- Chaque composant = 3 fichiers : `.ts`, `.html`, `.scss`
-- Nommage des classes CSS : BEM (`.block__element--modifier`)
-- Sélecteurs composants préfixés `app-` (`app-header`, `app-footer`)
-- Exports nommés avec le nom de la classe (ex: `export class Header`)
-
-## Thème et styles
-
-- **Palette** : violet sombre (`--primary: #7c3aed`, `--accent: #c084fc`, `--bg: #0f0a1a`)
-- **Animations globales** définies dans `styles.scss` : `fadeUp`, `fadeIn`, `float`, `gradientShift`, `pulseGlow`, `scaleIn`
-- **Scroll reveal** : ajouter la classe `.reveal` (+ `.delay-1` à `.delay-5`) — l'observer dans `app.ts` gère tout automatiquement via MutationObserver
-- **Cartes** : fond `rgba(26, 17, 40, 0.6)` avec bordure violette au hover
-
-## Données projets
-
-Les projets sont définis en dur dans `src/app/services/project-service.ts`. Interface `Project` :
-
-```typescript
-interface Project {
-  title: string;
-  description: string;
-  slug: string;           // Utilisé pour la route /projets/:id
-  status: 'done' | 'progress';
-  technologies: string[];
-  isGroup: boolean;       // Affiche une icône groupe si true
-  url?: string;           // Lien externe optionnel
-}
-```
-
-## Responsive
-
-- Breakpoint mobile : `768px`
-- Header : hamburger menu en dessous de 768px
-- Grilles (projets, contact) : passent en colonne unique
-- Hero : taille de texte réduite, boutons empilés
-
-## Points d'attention
-
-- Ne pas supprimer la classe `.reveal` des templates — c'est elle qui déclenche les animations au scroll
-- Le `MutationObserver` dans `app.ts` observe le DOM en continu pour les éléments `.reveal` ajoutés dynamiquement par le routeur
-- Les accents français doivent être préservés dans tous les templates HTML
-- `project-service.ts` est la source unique de données pour les projets
+- TypeScript strict, named exports, kebab-case file names.
+- Routes are built only through `href()` from `src/lib/routes.ts` (localized segments:
+  `projets`/`projects`, `a-propos`/`about`, `contact`). Always trailing slash.
+- UI strings live in `src/lib/dictionary.ts`; FR and EN must have identical keys.
+- Colors only through CSS tokens in `globals.css` (`bg-bg`, `text-fg`, `text-muted`,
+  `border-border`, `bg-card`, `text-accent`).
+- No emojis anywhere (UI, code, commits, content).
+- Code and comments in English; site content in French and English.
+- Conventional Commits.
