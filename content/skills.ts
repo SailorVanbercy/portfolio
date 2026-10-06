@@ -24,6 +24,9 @@ export const skills = [
   // Backend
   { id: 'nodejs', label: 'Node.js', category: 'backend' },
   { id: 'express', label: 'Express', category: 'backend' },
+  { id: 'spring-boot', label: 'Spring Boot', category: 'backend' },
+  { id: 'spring-ai', label: 'Spring AI', category: 'backend' },
+  { id: 'apache-tika', label: 'Apache Tika', category: 'backend' },
   { id: 'nextjs-api-routes', label: 'Next.js Route Handlers', category: 'backend' },
   { id: 'supabase', label: 'Supabase', category: 'backend' },
   { id: 'websocket', label: 'WebSocket', category: 'backend' },
@@ -36,6 +39,9 @@ export const skills = [
   { id: 'sqlite', label: 'SQLite', category: 'database' },
   { id: 'supabase-client', label: 'Supabase JS client', category: 'orm' },
   { id: 'prisma', label: 'Prisma', category: 'orm' },
+  { id: 'jpa', label: 'JPA', category: 'orm' },
+  { id: 'hibernate', label: 'Hibernate', category: 'orm' },
+  { id: 'spring-data-jpa', label: 'Spring Data JPA', category: 'orm' },
   { id: 'drizzle', label: 'Drizzle ORM', category: 'orm' },
 
   // Security
@@ -49,9 +55,14 @@ export const skills = [
   { id: 'nextauth', label: 'NextAuth.js', category: 'security' },
   { id: 'bcrypt', label: 'bcrypt', category: 'security' },
   { id: 'rbac', label: 'RBAC', category: 'security' },
+  { id: 'spring-security', label: 'Spring Security', category: 'security' },
+  { id: 'bean-validation', label: 'Bean Validation', category: 'security' },
 
   // Architecture
-  { id: 'rest-api', label: 'API REST', category: 'architecture' },
+  { id: 'rest-api', label: 'REST API', category: 'architecture' },
+  { id: 'layered-architecture', label: 'Layered architecture', category: 'architecture' },
+  { id: 'dto', label: 'DTO', category: 'architecture' },
+  { id: 'openapi', label: 'OpenAPI / Swagger', category: 'architecture' },
   { id: 'circuit-breaker', label: 'Circuit breaker', category: 'architecture' },
   { id: 'web-scraping', label: 'Web scraping', category: 'architecture' },
   { id: 'i18n', label: 'i18n', category: 'architecture' },
@@ -70,10 +81,13 @@ export const skills = [
   { id: 'playwright', label: 'Playwright', category: 'testing' },
   { id: 'jest', label: 'Jest', category: 'testing' },
   { id: 'testing-library', label: 'Testing Library', category: 'testing' },
+  { id: 'junit', label: 'JUnit 5', category: 'testing' },
+  { id: 'mockito', label: 'Mockito', category: 'testing' },
 
   // AI
   { id: 'claude-api', label: 'Claude API (Anthropic)', category: 'ai' },
   { id: 'grok-api', label: 'Grok API (xAI)', category: 'ai' },
+  { id: 'gemini-api', label: 'Gemini API (Google)', category: 'ai' },
   { id: 'llamaindex', label: 'LlamaIndex (RAG)', category: 'ai' },
   { id: 'prompt-engineering', label: 'Prompt engineering', category: 'ai' },
   { id: 'ai-agents', label: 'Agentic AI', category: 'ai' },
@@ -83,6 +97,8 @@ export const skills = [
   { id: 'git', label: 'Git', category: 'tooling' },
   { id: 'eslint', label: 'ESLint', category: 'tooling' },
   { id: 'husky', label: 'Husky / lint-staged', category: 'tooling' },
+  { id: 'maven', label: 'Maven', category: 'tooling' },
+  { id: 'lombok', label: 'Lombok', category: 'tooling' },
 
   // Mobile
   { id: 'react-native', label: 'React Native', category: 'mobile' },
