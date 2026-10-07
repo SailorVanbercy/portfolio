@@ -2,17 +2,31 @@ import { profile } from '@content/profile';
 import { getProjects, getSkills } from '@/lib/content/queries';
 import { getDictionary } from '@/lib/dictionary';
 import type { Locale } from '@/lib/i18n';
+import { projectSkillIds, skillOptionsFor } from '@/lib/filter-index';
 import { buildSkillsTree } from '@/lib/skills-tree';
+import { ProjectCard } from './project-card';
 import { ProjectFilters } from './project-filters';
 import { SectionHeading } from './section-heading';
 import { SkillsTree } from './skills-tree';
 
+const ABOVE_THE_FOLD_CARDS = 2;
+
 export function ProjectsView({ locale }: { locale: Locale }) {
   const dict = getDictionary(locale);
+  const projects = getProjects();
   return (
     <section className="pt-12 sm:pt-20">
       <SectionHeading as="h1" title={dict.projects.title} intro={dict.projects.intro} />
-      <ProjectFilters projects={getProjects()} skills={getSkills()} locale={locale} dict={dict} />
+      <ProjectFilters
+        items={projects.map((project, i) => ({
+          slug: project.slug,
+          category: project.category,
+          skills: projectSkillIds(project),
+          card: <ProjectCard project={project} locale={locale} variant="compact" headingLevel="h2" priority={i < ABOVE_THE_FOLD_CARDS} />,
+        }))}
+        skillOptions={skillOptionsFor(projects, getSkills())}
+        dict={dict}
+      />
     </section>
   );
 }

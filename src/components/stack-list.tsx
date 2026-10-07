@@ -1,4 +1,5 @@
-import { STACK_LAYERS, type Project } from '@/lib/content/schema';
+import { STACK_LAYERS } from '@/lib/content/constants';
+import type { Project } from '@/lib/content/schema';
 import { getSkill } from '@/lib/content/queries';
 import { getDictionary } from '@/lib/dictionary';
 import type { Locale } from '@/lib/i18n';

@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import type { ProjectImage } from '@/lib/content/schema';
+import { thumbOf } from '@/lib/content/thumb';
 import type { Locale } from '@/lib/i18n';
 
 export const IMAGE_SIZE = { desktop: { width: 1600, height: 1000 }, mobile: { width: 780, height: 1688 } } as const;
@@ -13,19 +14,22 @@ export function ProjectCover({
   locale,
   sizes,
   priority = false,
+  thumb = false,
 }: {
   image: ProjectImage;
   locale: Locale;
   sizes: string;
   priority?: boolean;
+  thumb?: boolean;
 }) {
   const mobile = image.viewport === 'mobile';
+  const src = `/${thumb ? thumbOf(image.src) : image.src}`;
   return (
     <div className="aspect-16/10 overflow-hidden rounded-md border border-border bg-surface">
       {mobile ? (
         <div className="flex h-full items-start justify-center pt-6">
           <Image
-            src={`/${image.src}`}
+            src={src}
             alt={image.alt[locale]}
             {...IMAGE_SIZE.mobile}
             unoptimized
@@ -36,7 +40,7 @@ export function ProjectCover({
         </div>
       ) : (
         <Image
-          src={`/${image.src}`}
+          src={src}
           alt={image.alt[locale]}
           {...IMAGE_SIZE.desktop}
           unoptimized

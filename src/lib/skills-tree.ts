@@ -1,4 +1,5 @@
-import { SKILL_CATEGORIES, type Project, type Skill, type SkillCategory } from './content/schema';
+import { SKILL_CATEGORIES } from './content/constants';
+import type { Project, Skill, SkillCategory } from './content/schema';
 
 export type ProjectRef = Pick<Project, 'slug' | 'title'>;
 

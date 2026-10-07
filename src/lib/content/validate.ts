@@ -1,6 +1,7 @@
 import { existsSync } from 'node:fs';
 import { join } from 'node:path';
 import { projectSchema, skillSchema, type Project, type Skill } from './schema';
+import { thumbOf } from './thumb';
 
 function findDuplicates<T>(values: T[]): T[] {
   const seen = new Set<T>();
@@ -40,7 +41,10 @@ function checkReferences(project: Project, skillIds: Set<string>, publicDir: str
   const missingImages = project.images
     .filter((image) => !existsSync(join(publicDir, image.src)))
     .map((image) => `${project.slug}: missing image ${image.src}`);
-  return [...unknownSkills, ...missingImages];
+  const missingThumbs = project.images
+    .filter((image) => existsSync(join(publicDir, image.src)) && !existsSync(join(publicDir, thumbOf(image.src))))
+    .map((image) => `${project.slug}: missing thumbnail ${thumbOf(image.src)}`);
+  return [...unknownSkills, ...missingImages, ...missingThumbs];
 }
 
 export function validateContent(projects: unknown[], skills: Skill[], publicDir: string): string[] {

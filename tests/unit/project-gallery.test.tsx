@@ -42,3 +42,14 @@ describe('ProjectGallery', () => {
     expect(screen.getByRole('img', { name: 'Shot 1' })).toHaveClass('object-contain');
   });
 });
+
+describe('ProjectGallery image sources', () => {
+  it('uses thumbnails in the grid and the full image in the lightbox', () => {
+    render(<ProjectGallery images={[img(1), img(2)]} locale="en" labels={labels} />);
+    const gridImage = screen.getByRole('img', { name: 'Shot 1' });
+    expect(gridImage).toHaveAttribute('src', '/projects/demo/01-x.thumb.webp');
+    fireEvent.click(screen.getByRole('button', { name: 'Enlarge: Shot 1' }));
+    const dialogImages = screen.getByRole('dialog').querySelectorAll('img');
+    expect(dialogImages[0]).toHaveAttribute('src', '/projects/demo/01-x.webp');
+  });
+});

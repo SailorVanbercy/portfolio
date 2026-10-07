@@ -1,37 +1,9 @@
 import { z } from 'zod';
 
-export const SKILL_CATEGORIES = [
-  'language',
-  'frontend',
-  'backend',
-  'database',
-  'orm',
-  'security',
-  'architecture',
-  'devops',
-  'testing',
-  'ai',
-  'tooling',
-  'mobile',
-  'desktop',
-  'methodology',
-] as const;
+import { PROJECT_CATEGORIES, SKILL_CATEGORIES, STACK_LAYERS } from './constants';
 
-export const STACK_LAYERS = [
-  'frontend',
-  'backend',
-  'database',
-  'security',
-  'architecture',
-  'infrastructure',
-  'testing',
-  'tooling',
-  'ai',
-  'mobile',
-  'desktop',
-] as const;
-
-export const PROJECT_CATEGORIES = ['professional', 'personal', 'academic'] as const;
+export { PROJECT_CATEGORIES, SKILL_CATEGORIES, STACK_LAYERS };
+export type { ProjectCategory, StackLayer } from './constants';
 
 const nonEmpty = z.string().trim().min(1);
 const localized = <T extends z.ZodType>(inner: T) => z.strictObject({ fr: inner, en: inner });
@@ -68,7 +40,5 @@ export const projectSchema = z.strictObject({
 
 export type Skill = z.infer<typeof skillSchema>;
 export type SkillCategory = Skill['category'];
-export type StackLayer = (typeof STACK_LAYERS)[number];
-export type ProjectCategory = (typeof PROJECT_CATEGORIES)[number];
 export type ProjectImage = z.infer<typeof imageSchema>;
 export type Project = z.infer<typeof projectSchema>;

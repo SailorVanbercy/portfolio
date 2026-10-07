@@ -3,6 +3,7 @@
 import Image from 'next/image';
 import { useEffect, useRef, useState } from 'react';
 import type { ProjectImage } from '@/lib/content/schema';
+import { thumbOf } from '@/lib/content/thumb';
 import { format } from '@/lib/dictionary';
 import type { Locale } from '@/lib/i18n';
 
@@ -51,7 +52,7 @@ export function ProjectGallery({ images, locale, labels }: { images: ProjectImag
               }`}
             >
               <Image
-                src={`/${image.src}`}
+                src={`/${thumbOf(image.src)}`}
                 alt={image.alt[locale]}
                 {...SIZE[image.viewport]}
                 unoptimized

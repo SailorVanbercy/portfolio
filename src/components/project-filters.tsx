@@ -1,20 +1,28 @@
 'use client';
 
-import { useMemo, useState } from 'react';
-import { PROJECT_CATEGORIES, type Project, type ProjectCategory, type Skill } from '@/lib/content/schema';
+import { useMemo, useState, type ReactNode } from 'react';
+import { PROJECT_CATEGORIES, type ProjectCategory } from '@/lib/content/constants';
 import { format, type Dictionary } from '@/lib/dictionary';
-import type { Locale } from '@/lib/i18n';
-import { ProjectCard } from './project-card';
+import type { SkillOption } from '@/lib/filter-index';
+
+/** Lightweight, serialisable view of a project: the card itself is rendered on the server. */
+export interface FilterableProject {
+  slug: string;
+  category: ProjectCategory;
+  skills: string[];
+  card: ReactNode;
+}
 
 export interface ProjectFilter {
   category?: ProjectCategory;
   skill?: string;
 }
 
-export function filterProjects(projects: Project[], { category, skill }: ProjectFilter): Project[] {
-  return projects.filter(
-    (p) => (!category || p.category === category) && (!skill || Object.values(p.stack).flat().includes(skill)),
-  );
+export function filterProjects<T extends Pick<FilterableProject, 'category' | 'skills'>>(
+  items: T[],
+  { category, skill }: ProjectFilter,
+): T[] {
+  return items.filter((item) => (!category || item.category === category) && (!skill || item.skills.includes(skill)));
 }
 
 const chipClass = (active: boolean) =>
@@ -23,22 +31,16 @@ const chipClass = (active: boolean) =>
   }`;
 
 export function ProjectFilters({
-  projects,
-  skills,
-  locale,
+  items,
+  skillOptions,
   dict,
 }: {
-  projects: Project[];
-  skills: Skill[];
-  locale: Locale;
+  items: FilterableProject[];
+  skillOptions: SkillOption[];
   dict: Dictionary;
 }) {
   const [filter, setFilter] = useState<ProjectFilter>({});
-  const visible = useMemo(() => filterProjects(projects, filter), [projects, filter]);
-  const usedSkills = useMemo(() => {
-    const used = new Set(projects.flatMap((p) => Object.values(p.stack).flat()));
-    return skills.filter((s) => used.has(s.id)).sort((a, b) => a.label.localeCompare(b.label));
-  }, [projects, skills]);
+  const visible = useMemo(() => filterProjects(items, filter), [items, filter]);
   const filtered = Boolean(filter.category || filter.skill);
 
   return (
@@ -76,7 +78,7 @@ export function ProjectFilters({
             className="rounded-md border border-border bg-surface px-3 py-1.5 text-sm"
           >
             <option value="">{dict.projects.filterAll}</option>
-            {usedSkills.map((skill) => (
+            {skillOptions.map((skill) => (
               <option key={skill.id} value={skill.id}>
                 {skill.label}
               </option>
@@ -96,8 +98,8 @@ export function ProjectFilters({
         <p className="text-muted">{dict.projects.empty}</p>
       ) : (
         <div className="grid gap-x-10 gap-y-16 sm:grid-cols-2">
-          {visible.map((project) => (
-            <ProjectCard key={project.slug} project={project} locale={locale} variant="compact" />
+          {visible.map((item) => (
+            <div key={item.slug}>{item.card}</div>
           ))}
         </div>
       )}

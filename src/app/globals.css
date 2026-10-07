@@ -58,9 +58,10 @@ body {
   border-radius: 2px;
 }
 
-/* The single orchestrated motion of the site: the home hero entrance. */
+/* The single orchestrated motion of the site: the home hero entrance.
+   The name (h1) is the LCP element, so it is painted immediately and never animated. */
 @media (prefers-reduced-motion: no-preference) {
-  .hero-reveal > * {
+  .hero-reveal > :not(h1) {
     animation: hero-in 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) both;
   }
   .hero-reveal > *:nth-child(2) { animation-delay: 0.08s; }

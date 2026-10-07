@@ -13,11 +13,13 @@ export function ProjectCard({
   locale,
   variant,
   priority = false,
+  headingLevel: Heading = 'h3',
 }: {
   project: Project;
   locale: Locale;
   variant: 'large' | 'compact';
   priority?: boolean;
+  headingLevel?: 'h2' | 'h3';
 }) {
   const dict = getDictionary(locale);
   const skills = [...new Set(Object.values(project.stack).flat())].slice(0, MAX_CARD_SKILLS);
@@ -30,6 +32,7 @@ export function ProjectCard({
           image={pickCover(project.images)}
           locale={locale}
           priority={priority}
+          thumb
           sizes={large ? '(min-width: 768px) 640px, 100vw' : '(min-width: 640px) 50vw, 100vw'}
         />
       </div>
@@ -38,14 +41,14 @@ export function ProjectCard({
           <span>{dict.projects.category[project.category]}</span>
           <span>{project.period}</span>
         </p>
-        <h3 className={`mt-1 font-display font-semibold tracking-tight ${large ? 'text-3xl sm:text-4xl' : 'text-xl'}`}>
+        <Heading className={`mt-1 font-display font-semibold tracking-tight ${large ? 'text-3xl sm:text-4xl' : 'text-xl'}`}>
           <Link
             href={href(locale, 'projects', project.slug)}
             className="after:absolute after:inset-0 after:content-[''] group-hover:text-accent"
           >
             {project.title}
           </Link>
-        </h3>
+        </Heading>
         <p className={`mt-2 text-muted ${large ? 'text-lg' : ''}`}>{project.pitch[locale]}</p>
         <ul className="mt-3 flex flex-wrap gap-1.5">
           {skills.map((id) => (

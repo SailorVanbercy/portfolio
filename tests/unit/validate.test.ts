@@ -34,6 +34,7 @@ beforeEach(() => {
   publicDir = mkdtempSync(join(tmpdir(), 'portfolio-public-'));
   mkdirSync(join(publicDir, 'projects', 'demo'), { recursive: true });
   writeFileSync(join(publicDir, 'projects', 'demo', '01-home.webp'), '');
+  writeFileSync(join(publicDir, 'projects', 'demo', '01-home.thumb.webp'), '');
 });
 
 describe('validateContent', () => {
@@ -71,5 +72,12 @@ describe('validateContent', () => {
   it('rejects an unknown stack layer', () => {
     const errors = validateContent([validProject({ stack: { cloud: ['nextjs'] } })], skills, publicDir);
     expect(errors.length).toBeGreaterThan(0);
+  });
+
+  it('rejects an image without its card thumbnail', () => {
+    writeFileSync(join(publicDir, 'projects', 'demo', '02-other.webp'), '');
+    const images = [{ src: 'projects/demo/02-other.webp', alt: { fr: 'x', en: 'x' }, viewport: 'desktop' }];
+    const errors = validateContent([validProject({ images })], skills, publicDir);
+    expect(errors.join('\n')).toMatch(/missing thumbnail .*02-other\.thumb\.webp/);
   });
 });

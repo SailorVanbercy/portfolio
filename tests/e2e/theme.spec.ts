@@ -25,7 +25,7 @@ test('reduced motion disables the hero animation', async ({ browser }) => {
   const context = await browser.newContext({ reducedMotion: 'reduce' });
   const page = await context.newPage();
   await page.goto('/fr/');
-  const animation = await page.locator('.hero-reveal > *').first().evaluate((el) => getComputedStyle(el).animationName);
+  const animation = await page.locator('.hero-reveal > p').first().evaluate((el) => getComputedStyle(el).animationName);
   expect(animation).toBe('none');
   await context.close();
 });

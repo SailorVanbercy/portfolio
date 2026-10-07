@@ -17,7 +17,7 @@ describe('real content', () => {
     expect(JSON.stringify(projects)).not.toMatch(EMOJI);
   });
 
-  it.skipIf(projects.length < EXPECTED_PROJECT_COUNT)('contains all projects and the 3 featured ones', () => {
+  it('contains all projects and the 3 featured ones', () => {
     expect(projects).toHaveLength(EXPECTED_PROJECT_COUNT);
     expect(projects.filter((p) => p.featured).map((p) => p.slug).sort()).toEqual([...EXPECTED_FEATURED].sort());
   });

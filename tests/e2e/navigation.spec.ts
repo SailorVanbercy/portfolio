@@ -68,3 +68,17 @@ test('no horizontal scroll on main pages', async ({ page }) => {
     expect(overflow, path).toBeLessThanOrEqual(0);
   }
 });
+
+test('client-side navigation loads without failed requests', async ({ page }) => {
+  const failures: string[] = [];
+  page.on('response', (response) => {
+    if (response.status() >= 400) failures.push(`${response.status()} ${response.url()}`);
+  });
+  await page.goto('/fr/');
+  await page.getByRole('link', { name: 'Projets', exact: true }).first().click();
+  await expect(page).toHaveURL(/\/fr\/projets\/$/);
+  await page.getByRole('link', { name: 'Smaatch' }).click();
+  await expect(page.getByRole('heading', { level: 1, name: 'Smaatch' })).toBeVisible();
+  await page.waitForLoadState('networkidle');
+  expect(failures).toEqual([]);
+});

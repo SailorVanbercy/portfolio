@@ -10,7 +10,8 @@
     "lint": "eslint .",
     "test": "vitest run",
     "test:watch": "vitest",
-    "test:e2e": "playwright test"
+    "test:e2e": "playwright test",
+    "postbuild": "tsx scripts/segment-paths.ts"
   },
   "dependencies": {
     "clsx": "^2.1.1",
