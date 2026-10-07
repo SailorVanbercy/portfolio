@@ -87,6 +87,7 @@ export const skills = [
   { id: 'pattern-state', label: 'State pattern', category: 'architecture' },
   { id: 'pattern-flyweight', label: 'Flyweight pattern', category: 'architecture' },
   { id: 'pattern-singleton', label: 'Singleton pattern', category: 'architecture' },
+  { id: 'pattern-strategy', label: 'Strategy pattern', category: 'architecture' },
   { id: 'oop', label: 'Object-oriented programming', category: 'architecture' },
   { id: 'repository-pattern', label: 'Repository pattern', category: 'architecture' },
   { id: 'networking', label: 'IP networking (CIDR, VLSM)', category: 'architecture' },
@@ -131,6 +132,8 @@ export const skills = [
   { id: 'husky', label: 'Husky / lint-staged', category: 'tooling' },
   { id: 'maven', label: 'Maven', category: 'tooling' },
   { id: 'cmake', label: 'CMake', category: 'tooling' },
+  { id: 'gson', label: 'Gson (JSON)', category: 'tooling' },
+  { id: 'eclipse', label: 'Eclipse IDE', category: 'tooling' },
   { id: 'lombok', label: 'Lombok', category: 'tooling' },
 
 
@@ -138,6 +141,7 @@ export const skills = [
   { id: 'sfml', label: 'SFML', category: 'desktop' },
   { id: 'game-loop', label: 'Game loop', category: 'desktop' },
   { id: 'customtkinter', label: 'CustomTkinter', category: 'desktop' },
+  { id: 'javafx', label: 'JavaFX', category: 'desktop' },
   // Methodology
   { id: 'uml', label: 'UML', category: 'methodology' },
   { id: 'bpmn', label: 'BPMN', category: 'methodology' },
