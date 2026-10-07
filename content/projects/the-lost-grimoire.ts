@@ -67,6 +67,7 @@ export default defineProject({
       viewport: 'desktop',
     },
   ],
+  links: { repo: 'https://github.com/SailorVanbercy/HackathonFront' },
   featured: false,
   order: 7,
 });

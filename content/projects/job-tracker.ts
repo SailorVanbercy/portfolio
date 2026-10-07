@@ -78,6 +78,7 @@ export default defineProject({
       viewport: 'desktop',
     },
   ],
+  links: { repo: 'https://github.com/SailorVanbercy/Jobtracker_backend' },
   featured: false,
   order: 5,
 });

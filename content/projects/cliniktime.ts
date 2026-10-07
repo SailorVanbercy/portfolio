@@ -75,6 +75,7 @@ export default defineProject({
       viewport: 'desktop',
     },
   ],
+  links: { repo: 'https://github.com/SailorVanbercy/ClinikTime_Backend' },
   featured: false,
   order: 8,
 });
