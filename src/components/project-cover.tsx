@@ -1,7 +1,7 @@
-import Image from 'next/image';
 import type { ProjectImage } from '@/lib/content/schema';
 import { thumbOf } from '@/lib/content/thumb';
 import type { Locale } from '@/lib/i18n';
+import Image from 'next/image';
 
 export const IMAGE_SIZE = { desktop: { width: 1600, height: 1000 }, mobile: { width: 780, height: 1688 } } as const;
 
@@ -46,7 +46,7 @@ export function ProjectCover({
           unoptimized
           sizes={sizes}
           priority={priority}
-          className="size-full object-cover object-left-top"
+          className="size-full object-cover object-top-left"
         />
       )}
     </div>
