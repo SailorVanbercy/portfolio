@@ -11,6 +11,8 @@ export const skills = [
   { id: 'dart', label: 'Dart', category: 'language' },
   { id: 'cpp', label: 'C++', category: 'language' },
   { id: 'python', label: 'Python', category: 'language' },
+  { id: 'php', label: 'PHP', category: 'language' },
+  { id: 'html-css', label: 'HTML / CSS', category: 'language' },
   { id: 'sql', label: 'SQL', category: 'language' },
 
   // Frontend
@@ -31,6 +33,8 @@ export const skills = [
   { id: 'vite', label: 'Vite', category: 'frontend' },
   { id: 'react-router', label: 'React Router', category: 'frontend' },
   { id: 'tiptap', label: 'TipTap (rich text editor)', category: 'frontend' },
+  { id: 'bootstrap', label: 'Bootstrap', category: 'frontend' },
+  { id: 'ajax', label: 'AJAX (Fetch API)', category: 'frontend' },
 
   // Backend
   { id: 'nodejs', label: 'Node.js', category: 'backend' },
@@ -60,6 +64,7 @@ export const skills = [
   { id: 'spring-data-jpa', label: 'Spring Data JPA', category: 'orm' },
   { id: 'drizzle', label: 'Drizzle ORM', category: 'orm' },
   { id: 'ef-core', label: 'Entity Framework Core', category: 'orm' },
+  { id: 'pdo', label: 'PDO', category: 'orm' },
 
   // Security
   { id: 'jwt', label: 'JWT', category: 'security' },
@@ -75,6 +80,8 @@ export const skills = [
   { id: 'spring-security', label: 'Spring Security', category: 'security' },
   { id: 'bean-validation', label: 'Bean Validation', category: 'security' },
   { id: 'secure-storage', label: 'Secure token storage', category: 'security' },
+  { id: 'prepared-statements', label: 'Prepared statements (SQL injection prevention)', category: 'security' },
+  { id: 'sessions', label: 'Server-side sessions', category: 'security' },
 
   // Architecture
   { id: 'rest-api', label: 'REST API', category: 'architecture' },
