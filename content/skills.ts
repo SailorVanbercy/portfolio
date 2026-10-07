@@ -9,6 +9,7 @@ export const skills = [
   { id: 'java', label: 'Java', category: 'language' },
   { id: 'csharp', label: 'C#', category: 'language' },
   { id: 'dart', label: 'Dart', category: 'language' },
+  { id: 'cpp', label: 'C++', category: 'language' },
   { id: 'sql', label: 'SQL', category: 'language' },
 
   // Frontend
@@ -81,6 +82,11 @@ export const skills = [
   { id: 'openapi', label: 'OpenAPI / Swagger', category: 'architecture' },
   { id: 'cqrs', label: 'CQRS', category: 'architecture' },
   { id: 'mvc', label: 'MVC', category: 'architecture' },
+  { id: 'pattern-command', label: 'Command pattern', category: 'architecture' },
+  { id: 'pattern-state', label: 'State pattern', category: 'architecture' },
+  { id: 'pattern-flyweight', label: 'Flyweight pattern', category: 'architecture' },
+  { id: 'pattern-singleton', label: 'Singleton pattern', category: 'architecture' },
+  { id: 'oop', label: 'Object-oriented programming', category: 'architecture' },
   { id: 'clean-architecture', label: 'Clean architecture', category: 'architecture' },
   { id: 'circuit-breaker', label: 'Circuit breaker', category: 'architecture' },
   { id: 'web-scraping', label: 'Web scraping', category: 'architecture' },
@@ -121,8 +127,13 @@ export const skills = [
   { id: 'eslint', label: 'ESLint', category: 'tooling' },
   { id: 'husky', label: 'Husky / lint-staged', category: 'tooling' },
   { id: 'maven', label: 'Maven', category: 'tooling' },
+  { id: 'cmake', label: 'CMake', category: 'tooling' },
   { id: 'lombok', label: 'Lombok', category: 'tooling' },
 
+
+  // Desktop and games
+  { id: 'sfml', label: 'SFML', category: 'desktop' },
+  { id: 'game-loop', label: 'Game loop', category: 'desktop' },
   // Methodology
   { id: 'uml', label: 'UML', category: 'methodology' },
   { id: 'bpmn', label: 'BPMN', category: 'methodology' },

@@ -8,5 +8,6 @@ import planFinancier from './plan-financier';
 import smaatch from './smaatch';
 import tetrisFormation from './tetris-formation';
 import theLostGrimoire from './the-lost-grimoire';
+import zombieHighSchool from './zombie-high-school';
 
-export const projects: Project[] = [leadboy, smaatch, tetrisFormation, planFinancier, jobTracker, arborescence, theLostGrimoire, cliniktime, foodsnap];
+export const projects: Project[] = [leadboy, smaatch, tetrisFormation, planFinancier, jobTracker, arborescence, theLostGrimoire, cliniktime, foodsnap, zombieHighSchool];
