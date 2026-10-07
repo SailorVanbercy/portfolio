@@ -10,6 +10,7 @@ export const skills = [
   { id: 'csharp', label: 'C#', category: 'language' },
   { id: 'dart', label: 'Dart', category: 'language' },
   { id: 'cpp', label: 'C++', category: 'language' },
+  { id: 'python', label: 'Python', category: 'language' },
   { id: 'sql', label: 'SQL', category: 'language' },
 
   // Frontend
@@ -87,6 +88,8 @@ export const skills = [
   { id: 'pattern-flyweight', label: 'Flyweight pattern', category: 'architecture' },
   { id: 'pattern-singleton', label: 'Singleton pattern', category: 'architecture' },
   { id: 'oop', label: 'Object-oriented programming', category: 'architecture' },
+  { id: 'repository-pattern', label: 'Repository pattern', category: 'architecture' },
+  { id: 'networking', label: 'IP networking (CIDR, VLSM)', category: 'architecture' },
   { id: 'clean-architecture', label: 'Clean architecture', category: 'architecture' },
   { id: 'circuit-breaker', label: 'Circuit breaker', category: 'architecture' },
   { id: 'web-scraping', label: 'Web scraping', category: 'architecture' },
@@ -134,6 +137,7 @@ export const skills = [
   // Desktop and games
   { id: 'sfml', label: 'SFML', category: 'desktop' },
   { id: 'game-loop', label: 'Game loop', category: 'desktop' },
+  { id: 'customtkinter', label: 'CustomTkinter', category: 'desktop' },
   // Methodology
   { id: 'uml', label: 'UML', category: 'methodology' },
   { id: 'bpmn', label: 'BPMN', category: 'methodology' },
