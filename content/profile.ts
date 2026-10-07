@@ -9,7 +9,7 @@ export const profile = {
     fr: 'Je conçois et livre des applications web et mobiles complètes, de la base de données à l’interface, avec un workflow de développement augmenté par l’IA.',
     en: 'I design and ship complete web and mobile applications, from the database to the interface, with an AI-augmented development workflow.',
   } satisfies Localized,
-  location: { fr: 'Belgique, Hainaut', en: 'Hainaut, Belgium' } satisfies Localized,
+  location: { fr: 'Hainaut, Belgique', en: 'Hainaut, Belgium' } satisfies Localized,
   bio: {
     fr: [
       'Diplômé d’un bachelier en informatique orientation développement d’applications à la HELHa, je travaille principalement avec TypeScript, Next.js, React et PostgreSQL (Supabase). Côté serveur, je suis à l’aise avec Node.js, Java et Spring Boot, ainsi que C# et ASP.NET Core.',
