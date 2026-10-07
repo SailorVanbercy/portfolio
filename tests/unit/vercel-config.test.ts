@@ -10,10 +10,11 @@ const config = JSON.parse(readFileSync(join(process.cwd(), 'vercel.json'), 'utf8
 };
 
 describe('vercel.json', () => {
-  it('pins the static export directory so a stale dashboard setting cannot override it', () => {
-    // next.config.ts uses output: 'export', which writes the site to out/.
+  it('pins the Next.js build directory so a stale dashboard setting cannot override it', () => {
+    // The Vercel Next.js builder reads routes-manifest.json from distDir (.next), then serves
+    // the static export (out/) itself via export-detail.json. Pointing it at out/ breaks the build.
     expect(config.framework).toBe('nextjs');
-    expect(config.outputDirectory).toBe('out');
+    expect(config.outputDirectory).toBe('.next');
   });
 
   it('redirects the bare root to the French home', () => {
