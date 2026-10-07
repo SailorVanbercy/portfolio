@@ -29,3 +29,14 @@ test('reduced motion disables the hero animation', async ({ browser }) => {
   expect(animation).toBe('none');
   await context.close();
 });
+
+test('dark theme survives switching language', async ({ page }) => {
+  await page.goto('/fr/projets/leadboy/');
+  if ((await page.locator('html').getAttribute('data-theme')) !== 'dark') {
+    await page.getByRole('button', { name: 'Changer de thème' }).click();
+  }
+  await expect(page.locator('html')).toHaveAttribute('data-theme', 'dark');
+  await page.getByRole('link', { name: 'Voir le site en anglais' }).click();
+  await expect(page).toHaveURL(/\/en\/projects\/leadboy\/$/);
+  await expect(page.locator('html')).toHaveAttribute('data-theme', 'dark');
+});
