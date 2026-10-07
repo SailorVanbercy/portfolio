@@ -8,6 +8,7 @@ export const skills = [
   { id: 'javascript', label: 'JavaScript', category: 'language' },
   { id: 'java', label: 'Java', category: 'language' },
   { id: 'csharp', label: 'C#', category: 'language' },
+  { id: 'dart', label: 'Dart', category: 'language' },
   { id: 'sql', label: 'SQL', category: 'language' },
 
   // Frontend
@@ -37,6 +38,7 @@ export const skills = [
   { id: 'spring-ai', label: 'Spring AI', category: 'backend' },
   { id: 'apache-tika', label: 'Apache Tika', category: 'backend' },
   { id: 'resend', label: 'Resend', category: 'backend' },
+  { id: 'multer', label: 'Multer', category: 'backend' },
   { id: 'nextjs-api-routes', label: 'Next.js Route Handlers', category: 'backend' },
   { id: 'supabase', label: 'Supabase', category: 'backend' },
   { id: 'websocket', label: 'WebSocket', category: 'backend' },
@@ -70,6 +72,7 @@ export const skills = [
   { id: 'rbac', label: 'RBAC', category: 'security' },
   { id: 'spring-security', label: 'Spring Security', category: 'security' },
   { id: 'bean-validation', label: 'Bean Validation', category: 'security' },
+  { id: 'secure-storage', label: 'Secure token storage', category: 'security' },
 
   // Architecture
   { id: 'rest-api', label: 'REST API', category: 'architecture' },
@@ -77,6 +80,7 @@ export const skills = [
   { id: 'dto', label: 'DTO', category: 'architecture' },
   { id: 'openapi', label: 'OpenAPI / Swagger', category: 'architecture' },
   { id: 'cqrs', label: 'CQRS', category: 'architecture' },
+  { id: 'mvc', label: 'MVC', category: 'architecture' },
   { id: 'clean-architecture', label: 'Clean architecture', category: 'architecture' },
   { id: 'circuit-breaker', label: 'Circuit breaker', category: 'architecture' },
   { id: 'web-scraping', label: 'Web scraping', category: 'architecture' },
@@ -126,6 +130,7 @@ export const skills = [
 
   // Mobile
   { id: 'react-native', label: 'React Native', category: 'mobile' },
+  { id: 'flutter', label: 'Flutter', category: 'mobile' },
   { id: 'expo', label: 'Expo', category: 'mobile' },
   { id: 'expo-router', label: 'Expo Router', category: 'mobile' },
   { id: 'nativewind', label: 'NativeWind', category: 'mobile' },
