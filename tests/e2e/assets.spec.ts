@@ -17,3 +17,16 @@ test('every image on every project page loads', async ({ page }) => {
     }
   }
 });
+
+test('favicons are declared and served', async ({ page, request }) => {
+  await page.goto('/fr/');
+  const icons = await page.locator('link[rel="icon"], link[rel="apple-touch-icon"]').evaluateAll((links) =>
+    links.map((l) => l.getAttribute('href') ?? ''),
+  );
+  expect(icons).toEqual(expect.arrayContaining(['/favicon.ico', '/icon-32.png', '/icon-192.png', '/apple-touch-icon.png']));
+  for (const href of icons) {
+    const response = await request.get(href);
+    expect(response.status(), href).toBe(200);
+    expect(response.headers()['content-type'], href).toMatch(/image/);
+  }
+});

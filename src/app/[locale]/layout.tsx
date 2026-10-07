@@ -23,7 +23,14 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
     metadataBase: new URL(SITE_URL),
     title: { default: dict.meta.siteTitle, template: '%s | Sailor Vanbercy' },
     description: dict.meta.siteDescription,
-    icons: { icon: '/favicon.ico', apple: '/apple-touch-icon.png' },
+    icons: {
+      icon: [
+        { url: '/favicon.ico', sizes: '48x48' },
+        { url: '/icon-32.png', type: 'image/png', sizes: '32x32' },
+        { url: '/icon-192.png', type: 'image/png', sizes: '192x192' },
+      ],
+      apple: '/apple-touch-icon.png',
+    },
     alternates: {
       canonical: href(locale, 'home'),
       languages: Object.fromEntries(LOCALES.map((l) => [l, href(l, 'home')])),
