@@ -3,11 +3,19 @@ import { join } from 'node:path';
 import { describe, expect, it } from 'vitest';
 
 const config = JSON.parse(readFileSync(join(process.cwd(), 'vercel.json'), 'utf8')) as {
+  framework: string;
+  outputDirectory?: string;
   redirects: { source: string; destination: string }[];
   headers: { source: string; headers: { key: string; value: string }[] }[];
 };
 
 describe('vercel.json', () => {
+  it('pins the static export directory so a stale dashboard setting cannot override it', () => {
+    // next.config.ts uses output: 'export', which writes the site to out/.
+    expect(config.framework).toBe('nextjs');
+    expect(config.outputDirectory).toBe('out');
+  });
+
   it('redirects the bare root to the French home', () => {
     expect(config.redirects).toContainEqual(expect.objectContaining({ source: '/', destination: '/fr/' }));
   });
