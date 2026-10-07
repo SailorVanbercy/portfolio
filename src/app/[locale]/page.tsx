@@ -28,7 +28,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
         <p className="mt-8 max-w-2xl text-xl leading-relaxed sm:text-2xl">{profile.headline[locale]}</p>
         <div className="mt-10 flex flex-wrap gap-3">
           <a
-            href={profile.contact.cv}
+            href={profile.contact.cv[locale]}
             download
             className="rounded-full bg-accent px-6 py-3 font-medium text-accent-fg transition-opacity hover:opacity-90"
           >

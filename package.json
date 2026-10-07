@@ -11,7 +11,8 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "test:e2e": "playwright test",
-    "postbuild": "tsx scripts/segment-paths.ts"
+    "postbuild": "tsx scripts/segment-paths.ts",
+    "cv": "tsx scripts/build-cv.ts"
   },
   "dependencies": {
     "clsx": "^2.1.1",

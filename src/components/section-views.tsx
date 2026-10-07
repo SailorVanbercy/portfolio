@@ -82,6 +82,7 @@ export function ContactView({ locale }: { locale: Locale }) {
     { label: dict.contact.email, value: profile.contact.email, href: `mailto:${profile.contact.email}`, external: false },
     { label: dict.contact.phone, value: profile.contact.phone, href: profile.contact.phoneHref, external: false },
     { label: dict.contact.github, value: profile.contact.githubHandle, href: profile.contact.github, external: true },
+    { label: 'LinkedIn', value: profile.contact.linkedinHandle, href: profile.contact.linkedin, external: true },
   ];
   return (
     <section className="pt-12 sm:pt-20">
@@ -101,7 +102,7 @@ export function ContactView({ locale }: { locale: Locale }) {
         ))}
       </ul>
       <a
-        href={profile.contact.cv}
+        href={profile.contact.cv[locale]}
         download
         className="mt-10 inline-block rounded-full bg-accent px-6 py-3 font-medium text-accent-fg transition-opacity hover:opacity-90"
       >

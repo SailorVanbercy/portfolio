@@ -23,6 +23,7 @@ npm run dev        # http://localhost:3000
 npm test           # unit tests
 npm run build      # validates content, then exports the static site to out/
 npm run test:e2e   # builds, serves out/ and runs Playwright
+npm run cv         # regenerates the FR/EN resume PDFs from cv/cv-data.ts
 ```
 
 ## Content

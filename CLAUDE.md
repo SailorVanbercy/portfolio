@@ -17,6 +17,7 @@ npm start          # Serves out/ on http://localhost:3100
 npm test           # Vitest unit tests
 npm run test:e2e   # Playwright (builds and serves out/ automatically)
 npm run lint
+npm run cv         # Regenerates public/cv-vanbercy-sailor(-en).pdf from cv/cv-data.ts (fails if > 1 page)
 ```
 
 ## Structure
@@ -48,6 +49,12 @@ tests/unit, tests/e2e
 4. Register it in `content/projects/index.ts`.
 5. `npm test && npm run build` — the build fails on a missing translation, unknown skill id,
    duplicate slug/order or missing image.
+
+## Resume (CV)
+
+`cv/cv-data.ts` holds the FR and EN resume content; `cv/render.ts` produces an ATS-friendly
+single-column HTML (standard headings, real text, no tables or icons) printed to PDF by
+`scripts/build-cv.ts`. Keep it to one page and only list skills evidenced in the projects.
 
 ## Conventions
 

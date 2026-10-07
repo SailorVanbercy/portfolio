@@ -26,7 +26,7 @@ export const profile = {
   } satisfies Record<Locale, string[]>,
   timeline: [
     {
-      period: '2025 – 2026',
+      period: '2026',
       title: { fr: 'Stage et travail de fin d’études, Indigo Studio', en: 'Internship and final-year project, Indigo Studio' },
       text: {
         fr: 'Conception et mise en production de LeadBoy, développement d’outils internes et intégration de Claude Code dans le workflow de développement.',
@@ -51,6 +51,8 @@ export const profile = {
     phoneHref: 'tel:+32497206705',
     github: 'https://github.com/SailorVanbercy',
     githubHandle: 'SailorVanbercy',
-    cv: '/cv-vanbercy-sailor.pdf',
+    cv: { fr: '/cv-vanbercy-sailor.pdf', en: '/cv-vanbercy-sailor-en.pdf' } satisfies Localized,
+    linkedin: 'https://www.linkedin.com/in/sailor-vanbercy-141241398/',
+    linkedinHandle: 'sailor-vanbercy-141241398',
   },
 } as const;

@@ -13,7 +13,8 @@ export function SiteFooter({ locale }: { locale: Locale }) {
         <ul className="flex gap-5">
           <li><a href={`mailto:${profile.contact.email}`} className="hover:text-fg">{dict.contact.email}</a></li>
           <li><a href={profile.contact.github} target="_blank" rel="noopener noreferrer" className="hover:text-fg">GitHub</a></li>
-          <li><a href={profile.contact.cv} download className="hover:text-fg">CV</a></li>
+          <li><a href={profile.contact.linkedin} target="_blank" rel="noopener noreferrer" className="hover:text-fg">LinkedIn</a></li>
+          <li><a href={profile.contact.cv[locale]} download className="hover:text-fg">CV</a></li>
         </ul>
       </div>
     </footer>
